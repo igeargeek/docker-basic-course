@@ -1,8 +1,8 @@
-FROM node:alpine3.10
-WORKDIR /src/app
-COPY package.json .
-RUN npm install
+FROM golang:latest
+WORKDIR /app/backend
 COPY . .
-CMD ["npm", "start"]
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o main .
+RUN chmod +x ./main
+ENTRYPOINT ["./main"]
 
-EXPOSE 3000
+EXPOSE 3030
