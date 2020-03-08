@@ -1,4 +1,6 @@
 FROM php:7.2-apache
-COPY . /var/www/html/
+WORKDIR /var/www/html/
+COPY . .
+RUN chmod -R 777 files/
 VOLUME [ "/var/www/html/files" ]
 EXPOSE 80
