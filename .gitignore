@@ -1,0 +1,5 @@
+# exclude everything
+workspace/*
+
+# exception to the rule
+!workspace/.gitkeep 
