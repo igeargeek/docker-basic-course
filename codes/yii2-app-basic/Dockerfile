@@ -1,5 +1,6 @@
 FROM php:7.2-apache
 COPY ./apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+# RUN sed -i 's/\/html/\/html\/web/g'  /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
